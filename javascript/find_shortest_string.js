@@ -1,5 +1,25 @@
+/*
+PROBLEM: Given an array of strings, return the shortest string. If two are 
+equal, return the one that comes first.
+
+APPROACH: Input is array of strings. Output is a string. Pseudocode:
+loop through the array
+  for the string at each index
+    convert it to an array
+    get the length
+    if the length is shorter than the stored shortest length
+      store current value as the shortest
+    continue loop
+  return shortest
+*/
+
+
 function findShortestString(arr) {
-  // type your code here
+  let shortest = 0;
+  const string = arr.reduce((shortest, current) => {
+    return current.split('').length < shortest ? current : shortest;
+  }, shortest);
+  return string;
 }
 
 if (require.main === module) {
